@@ -1,18 +1,15 @@
-import { ArrowRight, Crown, Gamepad2, Play, User } from 'lucide-react';
+import { ArrowRight, Gamepad2, Play, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ArcadeButton from './ArcadeButton';
 import { StatusBadge } from './GameCard';
 import { isPlayable } from '../data/games';
+import GameArtwork from './GameArtwork';
 
 export default function FeaturedGame({ game }) {
   return <section className="featured-showcase container" aria-labelledby="featured-title">
     <div className="featured-panel">
-      <div className="featured-art crt-surface">
-        <img src={game.artwork} alt="Kingdom Race original cover illustration: a golden gate in a moonlit pixel landscape" width="640" height="400" fetchpriority="high" />
-        <div className="featured-art-shade" aria-hidden="true" />
-        <div className="featured-art-top"><span className="featured-ribbon"><Crown size={14} aria-hidden="true" /> FEATURED TITLE</span><span className="style-badge">16-BIT ARCADE STYLE</span></div>
-        <div className="featured-art-title" aria-hidden="true"><span>THE LION’S GATE</span><strong>KINGDOM<br />RACE</strong><small>KNOW THE WORD. MEET THE CHALLENGE.</small></div>
-        <span className="art-label">R2G2 ORIGINAL COVER ART</span>
+      <div className="featured-art official-artwork">
+        <GameArtwork game={game} sizes="(max-width: 800px) calc(100vw - 44px), (max-width: 1200px) 58vw, 650px" priority />
       </div>
       <div className="featured-info">
         <StatusBadge game={game} />

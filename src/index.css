@@ -428,6 +428,13 @@ form .helper-text { margin-top: -4px; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .game-card:hover, .arcade-button:hover, .brand:hover .brand-controller, .game-card:hover .game-cover img { transform: none; }
 }
+.featured-art.official-artwork { min-height: 0; padding: 0; justify-content: center; background: #070d20; }
+.featured-art.official-artwork > img { position: static; width: 100%; height: auto; object-fit: contain; image-rendering: auto; }
+.game-cover.official-artwork { aspect-ratio: auto; overflow: visible; }
+.game-cover.official-artwork img { width: 100%; height: auto; object-fit: contain; image-rendering: auto; }
+.game-card:hover .official-artwork img { transform: none; }
+.game-cover.official-artwork .status-badge { position: static; margin: 12px 13px; }
+.detail-art .official-artwork img { width: 100%; height: auto; object-fit: contain; image-rendering: auto; border-radius: 0; }
 @media (forced-colors: active) {
   .brand-mark, .hero-wordmark, .page-intro h1 .gold, .about-emblem > span { -webkit-text-fill-color: CanvasText; background: none; filter: none; }
   .arcade-atmosphere, .crt-surface::after { display: none; }
