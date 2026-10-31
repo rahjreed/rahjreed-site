@@ -50,6 +50,7 @@ export default function SiteLayout() {
     <footer className="site-footer">
       <div className="container footer-main"><div><Brand /><p>{tagline}</p></div><nav aria-label="Footer navigation"><Link to="/arcade">Find your next game <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/custom-games">Make it your own <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/contact">Request a game <ArrowUpRight size={15} aria-hidden="true" /></Link></nav></div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} Rahj Reed Golden Games.</span><span>BUILT FOR THE JOY OF PLAY. <Gamepad2 size={15} aria-hidden="true" /></span></div>
+      <p className="container footer-attribution">R2G2 — A Callista Digital Creation</p>
     </footer>
   </div>;
 }
