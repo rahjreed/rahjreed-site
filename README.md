@@ -34,7 +34,7 @@ This environment needed Node's `--use-system-ca` flag during dependency installa
 | `/games/:slug` | Individual game description and availability |
 | `/custom-games` | Custom game options, starting prices, and process |
 | `/about` | About R2G2 |
-| `/contact` | Inactive inquiry form preview |
+| `/contact` | Email inquiry section |
 | Unmatched route | Branded not-found page |
 
 React Router uses browser history and clean paths. A staging host must serve `index.html`
@@ -86,17 +86,16 @@ The destination currently calls itself **Lions Gate Sword Sharpener — Scriptur
 R2G2 retains the requested **Kingdom Race: The Lion's Gate** catalog title and explains
 the destination title on its game detail page. Full gameplay/device certification is outside this website change.
 
-## Inquiry activation still needed
+## Email inquiries
 
-The contact page is explicitly a preview. Submit is disabled and the form handler
-prevents transmission. No email address, endpoint, persistence, or success response is invented.
-Game-detail and pricing links can preselect the relevant game/project type.
-
-Before enabling submissions, provide:
-
-1. A verified recipient or approved inquiry service.
-2. A working submission backend with validation, spam protection, error handling, and delivery verification.
-3. A privacy notice describing how inquiry details are used and retained.
+The contact page uses the approved address **hello@callistadigital.com**.
+The **REQUEST YOUR GAME** button opens the visitor's email application using a
+mailto link with subject **R2G2 Custom Game Inquiry**. Game-detail and pricing links
+preserve the selected game/project type in the email draft. The address is also
+displayed as a selectable, clickable link for visitors using another email service.
+There is no web form, database, API, form provider, or new email infrastructure.
+Visitors review and send their own email; clicking the link does not send it.
+The shared footer reads **R2G2 — A Callista Digital Creation**.
 
 No payments are implemented. Prices are presented as starting prices with final scope quoted separately.
 
@@ -105,11 +104,11 @@ No payments are implemented. Prices are presented as starting prices with final 
 - Production build passes with the patched router dependency.
 - Dependency installation audit reports zero known vulnerabilities.
 - Browser checks cover navigation, all five game detail routes, availability filters,
-  search and reset, inquiry game preselection, disabled submission, and mobile menu dismissal.
+  search and reset, inquiry context, and mobile menu dismissal.
 - Responsive checks at 390px and 320px confirm the home layout has no horizontal overflow.
 - Local direct-route loading passes. Hosted SPA fallback still requires staging verification.
 
-The website foundation is ready for a staging review with inquiries visibly inactive.
+The website foundation is ready for a staging review with email-based inquiries.
 Production deployment, domain changes, and external game changes require separate authorization.
 
 ## Gemini arcade visual redesign
