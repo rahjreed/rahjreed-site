@@ -21,7 +21,7 @@ npm run build
 npm run preview
 ```
 
-The production build is written to `dist/`. There is no test or lint script in the original project.
+The production build is written to `dist/`. Run `npm test` for audio lifecycle and catalog checks. No lint script is configured.
 On this Windows machine, if npm is missing from PATH, use `C:\Program Files\nodejs\npm.cmd`.
 This environment needed Node's `--use-system-ca` flag during dependency installation to trust the system certificate store; TLS verification was not disabled.
 
@@ -48,6 +48,13 @@ No hosting rewrites were added. Verify the existing host's SPA fallback before p
 - `src/components/ArcadeButton.jsx`: internal navigation, safe external links, and button variants.
 - `src/components/GameCard.jsx`: reusable cartridge cards and availability badges.
 - `src/components/PageIntro.jsx`: consistent page introductions.
+- `src/components/Brand.jsx`: shared gradient gamepad and R2G2 identity.
+- `src/components/FeaturedGame.jsx`: catalog-driven featured game showcase.
+- `src/components/ArcadeAtmosphere.jsx`: decorative lighting and perspective grid.
+- `src/components/ArcadeControls.jsx`: accessible sound, CRT, and motion toggles.
+- `src/hooks/useArcadeEffects.js`: session-level effects state and interaction handling.
+- `src/utils/retroAudio.js`: opt-in Web Audio synthesis with a reusable context and resource cleanup.
+- `tests/arcade.test.js`: automated audio lifecycle and game-catalog checks.
 - `src/data/games.js`: centralized catalog, tagline, featured selection, and playable-state guard.
 - `src/pages/`: Home, Arcade, GameDetails, CustomGames, About, Contact, and NotFound.
 - `src/index.css`: Tailwind entry point and responsive retro design.
@@ -104,3 +111,35 @@ No payments are implemented. Prices are presented as starting prices with final 
 
 The website foundation is ready for a staging review with inquiries visibly inactive.
 Production deployment, domain changes, and external game changes require separate authorization.
+
+## Gemini arcade visual redesign
+
+Recovery checkpoint: `7d3106f` on `codex-development`, saved before the redesign.
+The redesign uses the supplied Gemini CSS/JSX direction: near-black slate,
+gold-gradient branding, purple/magenta/cyan lighting, rounded luminous panels,
+an animated perspective grid, and a split featured Kingdom Race showcase.
+Local SVG illustrations remain original concept cover art.
+
+The underlying routes, React 18/Vite/Tailwind stack, catalog, search, availability
+filters, inquiry preselection, starting prices, and external game URL are retained.
+Catalog copy reflects the approved single-player Kingdom Race and planned game descriptions.
+No ratings, release dates, customer claims, add-on prices, or unbuilt features are presented as live.
+
+Sound is off on every fresh page load. Enabling it is an explicit user gesture;
+one audio context is reused for the enabled session and closed on mute/unmount.
+Each oscillator and gain node disconnects after use. Sounds are short and quiet,
+with rapid-click throttling. No audio files or network calls are required.
+
+CRT scanlines default on at low opacity and affect artwork only; they never
+cover controls or intercept input. CRT can be disabled. Background motion can
+be paused independently. A system reduced-motion preference disables animation
+and transitions, initializes Motion off, and disables its toggle while that
+preference is active. Settings persist across client-side navigation only.
+
+Verification includes five passing unit tests, production build, desktop/mobile browser checks,
+functional search/filter checks, and DOM/computed-style checks for effects controls.
+All ten page routes were checked at 390px without horizontal overflow. Home,
+library, pricing, and contact also passed at 320px. Reduced-motion overrides were
+verified in the compiled CSS; OS-level preference switching was not simulated.
+Hosted refresh/fallback verification remains pending; this redesign does not add
+or alter Vercel configuration. No deployment has been performed.
