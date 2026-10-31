@@ -1,6 +1,7 @@
 import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { isPlayable } from '../data/games';
+import GameArtwork from './GameArtwork';
 
 export function StatusBadge({ game }) {
   return <span className={'status-badge ' + (isPlayable(game) ? 'is-live' : '')}><span aria-hidden="true" />{isPlayable(game) ? 'Playable now' : 'Coming soon'}</span>;
@@ -11,7 +12,7 @@ export default function GameCard({ game, index = 0, headingLevel = 3 }) {
   return <article className={'game-card accent-' + game.accent}>
     <Link to={'/games/' + game.slug} className="game-cover-link" aria-label={'View ' + game.title}>
       <div className="cartridge-top"><span>R2G2 ORIGINAL</span><span>{String(index + 1).padStart(2, '0')}</span></div>
-      <div className="game-cover crt-surface"><img src={game.artwork} alt={game.shortTitle + ' cover illustration'} width="640" height="400" loading="lazy" /><StatusBadge game={game} /></div>
+      <div className={'game-cover ' + (game.artworkPresentation === 'official' ? 'official-artwork' : 'crt-surface')}><GameArtwork game={game} sizes="(max-width: 500px) calc(100vw - 42px), (max-width: 800px) 46vw, (max-width: 1300px) 30vw, 395px" /><StatusBadge game={game} /></div>
     </Link>
     <div className="game-card-body">
       <div className="card-meta"><p className="eyebrow game-genre">{game.genre}</p>
