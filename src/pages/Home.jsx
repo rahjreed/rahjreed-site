@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ArcadeButton from '../components/ArcadeButton';
 import FeaturedGame from '../components/FeaturedGame';
 import GameCard from '../components/GameCard';
+import SupportSection from '../components/SupportSection';
 import { featuredGame, games } from '../data/games';
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
       <p className="section-description">One game ready to play. Four more adventures on the horizon.</p>
       <div className="games-grid">{games.map((game, index) => <GameCard game={game} index={index} key={game.slug} />)}</div>
     </section>
+    <div className="container support-home"><SupportSection showLearnMore /></div>
     <section className="container custom-callout"><div className="callout-icon" aria-hidden="true"><Flame size={38} /></div><div><p className="eyebrow">YOUR STORY. YOUR PLAYERS. YOUR GAME.</p><h2>DON’T JUST PLAY.<br /><span className="gold">MAKE IT YOURS.</span></h2><p>Turn your lesson, event, or celebration into a custom retro game.</p></div><ArcadeButton to="/custom-games" variant="secondary">Explore Custom Games <ArrowRight size={17} aria-hidden="true" /></ArcadeButton></section>
     <section className="container purpose-section"><p className="eyebrow">THIS IS RAHJ REED GOLDEN GAMES</p><h2>A little nostalgia.<br /><span className="gold">A lot of possibility.</span></h2><p>We’re bringing the spirit of the 16-bit era to learning, competition, and celebration. Games you can jump into. Experiences you can make your own.</p><Link className="text-link" to="/about">Meet R2G2 <ArrowRight size={16} aria-hidden="true" /></Link></section>
   </>;

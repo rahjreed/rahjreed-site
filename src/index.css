@@ -435,6 +435,59 @@ form .helper-text { margin-top: -4px; }
 .game-card:hover .official-artwork img { transform: none; }
 .game-cover.official-artwork .status-badge { position: static; margin: 12px 13px; }
 .detail-art .official-artwork img { width: 100%; height: auto; object-fit: contain; image-rendering: auto; border-radius: 0; }
+.pricing-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pricing-grid-three .pricing-card { display: flex; flex-direction: column; align-items: flex-start; padding: 29px; }
+.pricing-grid-three .pricing-card > h2 { font-size: 29px; }
+.pricing-grid-three .pricing-card > .arcade-button { margin-top: auto; width: 100%; }
+.pricing-grid-three .pricing-card > p:last-of-type { margin-bottom: 27px; }
+.pricing-grid-three .price { width: 100%; }
+.pricing-grid-three .price strong { font-size: 55px; }
+.engine-badge { display: inline-block; border: 1px solid #a855f755; border-radius: 6px; color: #e9d5ff; background: #3b076433; padding: 6px 9px; font: 10px/1.5 ui-monospace, Consolas, monospace; margin-bottom: 16px; }
+.engine-options { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; padding: 27px; border: 1px solid #a855f744; border-radius: 16px; background: #21123966; }
+.engine-options h2 { font-size: 22px; margin-bottom: 12px; color: #fde68a; }
+.engine-options p { font-size: 13px; color: #c0b3d2; }
+.support-home { margin-bottom: 75px; }
+.support-panel { position: relative; display: flex; gap: 30px; padding: 42px; border: 1px solid #a855f788; border-radius: 24px; background: radial-gradient(ellipse at top right, #00d63213, transparent 60%), linear-gradient(120deg, #30144be6, #10162a); box-shadow: 0 0 32px #9333ea19, inset 0 0 22px #f59e0b08; }
+.support-emblem { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 13px; width: 85px; height: 100px; padding: 18px 12px; color: #fcd34d; border: 1px solid #f59e0b66; border-radius: 18px; background: linear-gradient(145deg, #f59e0b1a, #9333ea26); box-shadow: 0 0 24px #f59e0b11; }
+.support-emblem span { font: 800 12px ui-monospace, Consolas, monospace; letter-spacing: .2em; }
+.support-content { min-width: 0; flex: 1; }
+.support-content h2 { font-size: clamp(25px, 3.1vw, 39px); color: #fde68a; margin-block: 13px 20px; }
+.support-message { color: #d8c9e7; font-size: 15px; max-width: 720px; }
+.cash-app-handle { margin-block: 25px; display: flex; flex-wrap: wrap; gap: 10px 15px; align-items: baseline; }
+.cash-app-handle > span { color: #bed9c6; font-size: 14px; font-weight: 600; }
+.cash-app-handle code { font: 800 clamp(28px, 4vw, 43px)/1.2 ui-monospace, Consolas, monospace; color: #78f899; letter-spacing: -.03em; overflow-wrap: anywhere; user-select: all; }
+.support-actions { display: flex; flex-wrap: wrap; gap: 17px; }
+.arcade-button.cash-app-button { color: #062011; border-color: #4ade8077; background: linear-gradient(110deg, #86efac, #00d632); box-shadow: 0 5px 0 #14532d, 0 7px 22px #00d63220, inset 0 1px #fff5; }
+.arcade-button.cash-app-button:hover { box-shadow: 0 7px 0 #14532d, 0 0 28px #00d63235; }
+.copy-feedback { min-height: 24px; margin-top: 13px; color: #a7f3d0; font-size: 12px; }
+.support-content > .text-link { margin-bottom: 10px; }
+.support-disclosure { margin-top: 12px; padding-top: 18px; border-top: 1px solid #a855f733; color: #b8abc9; font-size: 11px; max-width: 820px; }
+.support-uses-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px; margin-top: 33px; }
+.support-uses-grid article { padding: 30px; border: 1px solid #a855f747; border-radius: 17px; background: linear-gradient(145deg, #25133999, #10162a); }
+.support-uses-grid h3 { font-size: 23px; margin-block: 20px 13px; }
+.support-uses-grid p { font-size: 14px; color: #bdafcf; }
+.footer-main nav { flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 1000px) {
+  .pricing-grid-three { grid-template-columns: 1fr; }
+  .support-panel { padding: 32px; gap: 23px; }
+}
+@media (max-width: 800px) {
+  .support-emblem { display: none; }
+  .engine-options { grid-template-columns: 1fr; }
+  .footer-main nav { justify-content: flex-start; }
+}
+@media (max-width: 500px) {
+  .support-home { margin-bottom: 55px; }
+  .support-panel { padding: 25px; border-radius: 18px; }
+  .support-content h2 { font-size: 27px; }
+  .support-message { font-size: 14px; }
+  .support-actions { flex-direction: column; }
+  .support-actions .arcade-button { width: 100%; font-size: 11px; padding-inline: 13px; }
+  .support-uses-grid { grid-template-columns: 1fr; }
+  .support-uses-grid article { padding: 26px; }
+  .engine-options { padding: 24px; }
+  .pricing-grid-three .pricing-card { padding: 26px; }
+}
 @media (forced-colors: active) {
   .brand-mark, .hero-wordmark, .page-intro h1 .gold, .about-emblem > span { -webkit-text-fill-color: CanvasText; background: none; filter: none; }
   .arcade-atmosphere, .crt-surface::after { display: none; }
