@@ -2,14 +2,12 @@ import { useSearchParams } from 'react-router-dom';
 import { ArrowUpRight, BookOpen, ClipboardList, Gamepad2, Mail, PartyPopper } from 'lucide-react';
 import PageIntro from '../components/PageIntro';
 import { games } from '../data/games';
+import { customGamePackages } from '../data/pricing';
 
 const email = 'hello@callistadigital.com';
 const subject = 'R2G2 Custom Game Inquiry';
 const emailLink = 'mailto:' + email + '?subject=' + encodeURIComponent(subject);
-const projectTypes = {
-  organizational: 'Custom educational game',
-  personal: 'Personalized party / adventure game',
-};
+const projectTypes = Object.fromEntries(customGamePackages.map((offer) => [offer.id, offer.title]));
 
 export default function Contact() {
   const [params] = useSearchParams();
@@ -35,7 +33,7 @@ export default function Contact() {
 
   return <div className="container page-content">
     <PageIntro eyebrow="CONTACT / REQUEST A GAME" title={<>LET’S MAKE<br /><span className="gold">SOMETHING PLAYABLE.</span></>}>
-      <p>Bring your idea to the arcade. Inquire about custom educational games, personalized party games, and retro arcade experiences made around your people.</p>
+      <p>Bring your idea to the arcade. Inquire about customized educational games, personalized party games, or fully original game development.</p>
     </PageIntro>
     <div className="contact-layout">
       <section className="request-panel email-inquiry" aria-labelledby="inquiry-heading">

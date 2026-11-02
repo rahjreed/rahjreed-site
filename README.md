@@ -35,6 +35,7 @@ This environment needed Node's `--use-system-ca` flag during dependency installa
 | `/custom-games` | Custom game options, starting prices, and process |
 | `/about` | About R2G2 |
 | `/contact` | Email inquiry section |
+| `/support` | Voluntary Cash App support for the free arcade |
 | Unmatched route | Branded not-found page |
 
 React Router uses browser history and clean paths. A staging host must serve `index.html`
@@ -97,7 +98,41 @@ There is no web form, database, API, form provider, or new email infrastructure.
 Visitors review and send their own email; clicking the link does not send it.
 The shared footer reads **R2G2 — A Callista Digital Creation**.
 
-No payments are implemented. Prices are presented as starting prices with final scope quoted separately.
+No on-site payment checkout is implemented. Prices are presented as starting prices with final scope quoted separately.
+
+## Approved custom-game pricing and voluntary support
+
+The shared catalog in `src/data/pricing.js` defines all custom-game starting prices:
+
+| Offering | Starting creation price | Hosting and maintenance |
+| --- | --- | --- |
+| Customized Educational Games | $997 | $50/month |
+| Personalized Party Games | $997 | $15/month |
+| Fully Original Game Development | $4,500 | Custom quote |
+
+Educational and party packages customize an existing R2G2 game engine. Entirely new
+mechanics, gameplay systems, environments, and original concepts use the original
+development offering. Post-delivery adjustments start at $100 per defined request;
+major changes and additional features require separate quotes. No pricing calculator
+or unsupported add-on fees are present. Package inquiry links prefill the approved
+offering name in the existing email draft, including original development.
+
+`src/components/SupportSection.jsx` is reused below the homepage game lineup and on
+`src/pages/Support.jsx`. Cash App values are centralized in `src/data/support.js`:
+`https://cash.app/$rahjreed` and the literal handle `$rahjreed`. The support action
+opens the external Cash App page; there is no payment form or payment API integration.
+The copy action uses `src/utils/copyCashAppHandle.js`, reports success accessibly only
+after the Clipboard API completes, and selects the handle for manual copying if
+clipboard access fails. The site should be served on HTTPS (or localhost for testing)
+for browser Clipboard API support.
+
+Contributions support new games, free-game hosting and maintenance, educational
+content, and arcade improvements. They are voluntary, never required for free games,
+and are not represented as tax-deductible charitable donations. R2G2 is a gaming
+brand operated by Callista Digital. The footer attribution remains unchanged.
+
+`tests/pricing-support.test.js` checks the approved pricing, literal Cash App values,
+and successful/denied clipboard behavior. Run all automated checks with `npm test`.
 
 ## Verification and staging
 
