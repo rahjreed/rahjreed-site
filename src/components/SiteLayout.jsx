@@ -5,14 +5,11 @@ import { games, tagline } from '../data/games';
 import { canLaunchTool, creatorTools } from '../data/creatorTools';
 import Brand from './Brand';
 import ArcadeAtmosphere from './ArcadeAtmosphere';
-import ArcadeControls from './ArcadeControls';
-import useArcadeEffects from '../hooks/useArcadeEffects';
 
 const links = [['/', 'Home'], ['/arcade', 'Arcade'], ['/tools', 'CREATOR TOOLS'], ['/custom-games', 'Custom Games'], ['/about', 'About R2G2'], ['/contact', 'Contact']];
 const titles = { '/': 'Retro Arcade', '/arcade': 'Arcade / Games Library', '/tools': 'Creator Tools', '/custom-games': 'Custom Games', '/about': 'About R2G2', '/contact': 'Contact / Request a Game', '/support': 'Support R2G2' };
 
 export default function SiteLayout() {
-  const effects = useArcadeEffects();
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const mainRef = useRef(null);
@@ -37,7 +34,7 @@ export default function SiteLayout() {
       menuRef.current?.focus();
     }
   }
-  return <div className="site-shell" data-crt={effects.crtEnabled ? 'on' : 'off'} data-motion={effects.motionEnabled ? 'on' : 'off'} onKeyDown={closeOnEscape} onClickCapture={effects.playInteraction}>
+  return <div className="site-shell" onKeyDown={closeOnEscape}>
     <ArcadeAtmosphere />
     <a className="skip-link" href="#main-content">Skip to content</a>
     <header className="site-header"><div className="container header-inner">
@@ -46,7 +43,6 @@ export default function SiteLayout() {
       <nav id="primary-navigation" className={'primary-nav ' + (menuOpen ? 'menu-open' : '')} aria-label="Main navigation">{links.map(([to, label]) => <NavLink key={to} to={to} end={to === '/'} onClick={() => setMenuOpen(false)}>{label}</NavLink>)}</nav>
       <Link className="header-arcade" to="/arcade"><Gamepad2 size={17} aria-hidden="true" /> Enter Arcade <ArrowUpRight size={16} aria-hidden="true" /></Link>
     </div></header>
-    <ArcadeControls effects={effects} />
     <main id="main-content" tabIndex={-1} ref={mainRef}><Outlet /></main>
     <footer className="site-footer">
       <div className="container footer-main"><div><Brand /><p>{tagline}</p></div><nav aria-label="Footer navigation"><Link to="/arcade">Find your next game <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/custom-games">Make it your own <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/contact">Request a game <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/support">Support R2G2 <ArrowUpRight size={15} aria-hidden="true" /></Link></nav></div>

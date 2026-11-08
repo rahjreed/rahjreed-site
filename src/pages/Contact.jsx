@@ -51,7 +51,7 @@ export default function Contact() {
           {projectType && <p>Project type: <strong>{projectType}</strong></p>}
           {selectedGame && <p>Game inspiration: <strong>{selectedGame.title}</strong></p>}
         </div>}
-        <a className="arcade-button inquiry-button" href={requestLink} data-sound="coin"><Mail size={18} aria-hidden="true" /> REQUEST YOUR GAME <ArrowUpRight size={18} aria-hidden="true" /></a>
+        <a className="arcade-button inquiry-button" href={requestLink}><Mail size={18} aria-hidden="true" /> REQUEST YOUR GAME <ArrowUpRight size={18} aria-hidden="true" /></a>
         <p className="helper-text">Opens your email application with the subject “{subject}”. Review your draft and send it when you’re ready.</p>
         <div className="inquiry-email">
           <span>Prefer your own email service?</span>
