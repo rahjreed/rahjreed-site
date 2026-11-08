@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Gamepad2, Menu, X } from 'lucide-react';
 import { games, tagline } from '../data/games';
+import { canLaunchTool, creatorTools } from '../data/creatorTools';
 import Brand from './Brand';
 import ArcadeAtmosphere from './ArcadeAtmosphere';
 import ArcadeControls from './ArcadeControls';
 import useArcadeEffects from '../hooks/useArcadeEffects';
 
-const links = [['/', 'Home'], ['/arcade', 'Arcade'], ['/custom-games', 'Custom Games'], ['/about', 'About R2G2'], ['/contact', 'Contact']];
-const titles = { '/': 'Retro Arcade', '/arcade': 'Arcade / Games Library', '/custom-games': 'Custom Games', '/about': 'About R2G2', '/contact': 'Contact / Request a Game', '/support': 'Support R2G2' };
+const links = [['/', 'Home'], ['/arcade', 'Arcade'], ['/tools', 'CREATOR TOOLS'], ['/custom-games', 'Custom Games'], ['/about', 'About R2G2'], ['/contact', 'Contact']];
+const titles = { '/': 'Retro Arcade', '/arcade': 'Arcade / Games Library', '/tools': 'Creator Tools', '/custom-games': 'Custom Games', '/about': 'About R2G2', '/contact': 'Contact / Request a Game', '/support': 'Support R2G2' };
 
 export default function SiteLayout() {
   const effects = useArcadeEffects();
@@ -49,6 +50,15 @@ export default function SiteLayout() {
     <main id="main-content" tabIndex={-1} ref={mainRef}><Outlet /></main>
     <footer className="site-footer">
       <div className="container footer-main"><div><Brand /><p>{tagline}</p></div><nav aria-label="Footer navigation"><Link to="/arcade">Find your next game <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/custom-games">Make it your own <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/contact">Request a game <ArrowUpRight size={15} aria-hidden="true" /></Link><Link to="/support">Support R2G2 <ArrowUpRight size={15} aria-hidden="true" /></Link></nav></div>
+      <div className="container footer-creator-tools">
+        <h2 id="footer-tools-title" className="eyebrow">FREE CREATOR TOOLS</h2>
+        <nav aria-labelledby="footer-tools-title">
+          <Link to="/tools">Creator Tools Directory</Link>
+          {creatorTools.filter(canLaunchTool).map((tool) => <a key={tool.id} href={tool.externalUrl} target="_blank" rel="noopener noreferrer">
+            {tool.name} <ArrowUpRight size={15} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span>
+          </a>)}
+        </nav>
+      </div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} Rahj Reed Golden Games.</span><span>BUILT FOR THE JOY OF PLAY. <Gamepad2 size={15} aria-hidden="true" /></span></div>
       <p className="container footer-attribution">R2G2 — A Callista Digital Creation</p>
     </footer>

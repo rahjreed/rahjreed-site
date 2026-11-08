@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SiteLayout from './components/SiteLayout';
 import Home from './pages/Home';
 import Arcade from './pages/Arcade';
+import CreatorTools from './pages/CreatorTools';
 import GameDetails from './pages/GameDetails';
 import CustomGames from './pages/CustomGames';
 import About from './pages/About';
@@ -14,6 +15,7 @@ export default function App() {
     <Routes><Route element={<SiteLayout />}>
       <Route index element={<Home />} />
       <Route path="arcade" element={<Arcade />} />
+      <Route path="tools" element={<CreatorTools />} />
       <Route path="games/:slug" element={<GameDetails />} />
       <Route path="custom-games" element={<CustomGames />} />
       <Route path="about" element={<About />} />

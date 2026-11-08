@@ -31,6 +31,7 @@ This environment needed Node's `--use-system-ca` flag during dependency installa
 | --- | --- |
 | `/` | Home with featured Kingdom Race and the full lineup |
 | `/arcade` | Searchable, availability-filtered game library |
+| `/tools` | Free Creator Tools directory |
 | `/games/:slug` | Individual game description and availability |
 | `/custom-games` | Custom game options, starting prices, and process |
 | `/about` | About R2G2 |
@@ -57,6 +58,8 @@ No hosting rewrites were added. Verify the existing host's SPA fallback before p
 - `src/utils/retroAudio.js`: opt-in Web Audio synthesis with a reusable context and resource cleanup.
 - `tests/arcade.test.js`: automated audio lifecycle and game-catalog checks.
 - `src/data/games.js`: centralized catalog, tagline, featured selection, and playable-state guard.
+- `src/data/creatorTools.js`: creator tool listings and availability. The directory reads the catalog, the homepage shows the first featured available tool, and the footer links only to available tools.
+- `src/components/CreatorToolCard.jsx`: reusable directory and homepage card. Mr. Prompterson opens its independent app in a new tab.
 - `src/pages/`: Home, Arcade, GameDetails, CustomGames, About, Contact, and NotFound.
 - `src/index.css`: Tailwind entry point and responsive retro design.
 - `public/images/`: five original local SVG cover illustrations and the R2G2 favicon. These are concept illustrations, not game screenshots.
