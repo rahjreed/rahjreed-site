@@ -14,7 +14,7 @@ export default function GameDetails() {
     <Link to="/arcade" className="text-link back-link"><ArrowLeft size={16} aria-hidden="true" /> Back to the arcade</Link>
     <section className={'game-detail accent-' + game.accent}>
       <div className="detail-art">
-        <div className={game.artworkPresentation === 'official' ? 'official-artwork' : 'crt-surface'}>
+        <div className={game.artworkPresentation === 'official' ? 'official-artwork' : undefined}>
           <GameArtwork game={game} sizes="(max-width: 800px) calc(100vw - 64px), (max-width: 1300px) 47vw, 590px" priority />
         </div>
         <span className="art-caption">{game.artworkPresentation === 'official' ? 'OFFICIAL PROMOTIONAL ARTWORK' : 'R2G2 COVER ILLUSTRATION'}</span>

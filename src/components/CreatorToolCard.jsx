@@ -7,7 +7,7 @@ export default function CreatorToolCard({ tool, compact = false }) {
   const launchable = canLaunchTool(tool);
 
   return <article className="creator-tool-card">
-    <div className="creator-tool-art crt-surface" aria-hidden="true">
+    <div className="creator-tool-art" aria-hidden="true">
       <div className="creator-tool-screen">
         <span className="creator-tool-signal">{tool.visualLabel}</span>
         <Icon size={54} strokeWidth={1.5} />
